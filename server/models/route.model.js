@@ -24,7 +24,7 @@ const RouteSchema = new mongoose.Schema({
         type: Number,
         required:[true, "Price is required"],
         min:[1, "rating must be at least 1"],
-        // max:[5, "Maximum rating is 5"]
+        max:[5, "Maximum rating is 5"]
     },
     distance: { 
         type: Number,
