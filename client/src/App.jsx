@@ -15,6 +15,7 @@ import ViewOne from './views/viewOne';
 import Register from './components/Register';
 import Logout from './components/Logout';
 import Login from './components/Login';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -30,6 +31,8 @@ function App() {
           <Route path="/allRoutes" element={<View/>} />
           <Route path="/routes/:id" element={<ViewOne/>} />
           <Route path="/routes/edit/:id" element={<Edit/>} />
+          <Route path="*" element={<NotFound/>}/>
+          
         </Routes>
     </div>
     </BrowserRouter>

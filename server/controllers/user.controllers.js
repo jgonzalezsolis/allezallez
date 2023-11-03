@@ -10,6 +10,7 @@ module.exports = {
             const potentialUser = await User.findOne({email:req.body.email})
             if (potentialUser){
                 res.status(400).json({message:'This email already exists, please log in'})
+                console.log(res)
             }
             else{
                 const newUser = await User.create(req.body)
@@ -46,7 +47,6 @@ module.exports = {
         }
     },
     logoutUser: (req, res) => {
-        res.clearCookie('usertoken');
-        res.status(200).json({message: 'log Out Successful'});
+        res.clearCookie('userToken').json({ message: 'User is logged out' });
     }
 }

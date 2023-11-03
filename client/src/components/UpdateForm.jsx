@@ -20,7 +20,7 @@ const Update = (props) => {
     // retrieve the current values for this person so we can fill
     // in the form with what is in the db currently
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/routes/${id}`)
+        axios.get(`http://localhost:8000/api/routes/${id}`, {withCredentials:true})
             .then(res=>{
                 console.log(res)
                 console.log(res.data)
@@ -31,7 +31,7 @@ const Update = (props) => {
 
     const updateRoute = (e) => {
         e.preventDefault();
-        axios.patch(`http://localhost:8000/api/routes/${id}`, route)
+        axios.patch(`http://localhost:8000/api/routes/${id}`, route,{withCredentials:true})
             .then(res => {
                 console.log(res);
                 navigate(`/routes/${id}`)  //this will take us to the details page for this product
@@ -44,14 +44,26 @@ const Update = (props) => {
             // navigate("/")
         })
     }
+    const logoutUser = () => {
+        axios.post('http://localhost:8000/api/logoutUser', {},{withCredentials:true})
+            .then((res) => {
+                console.log(err);
+                navigate('/')
+            })
+            .catch((err) => {
+                console.log(err);
+                navigate('/')
+            })
+    }
     return (
-        <div>
+        <div className='col-6 mx-auto'>
+            <button className="btn btn-danger" onClick={logoutUser}>Logout</button>
             <h1>ALLEZ ALLEZ</h1>
             <h1>A place to share routes with other cyclist</h1>
             <h3>“It never gets easier, you just get faster.” — Greg LeMond</h3>
             <form onSubmit={updateRoute}>
-                <div>
-                    <label>State:</label><br/>
+                <div className='form-group'>
+                    <label className='form-label'>State:</label><br/>
                     {/* When the user types in this input, our onChange synthetic event 
                         runs this arrow function, setting that event's target's (input) 
                     value (what's typed into the input) to our updated state   */}

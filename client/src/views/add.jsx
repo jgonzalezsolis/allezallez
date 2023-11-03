@@ -6,11 +6,9 @@ import Nav from '../components/Nav';
 
 
 const Add = (props) => {
-
     const [allRoutes, setAllRoutes] = useState([]);
     const [route, setRoute] = useState ({
-        title: '',
-        body: ''
+
     })
 
     return (

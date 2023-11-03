@@ -15,7 +15,7 @@ const OneRoute = (props) => {
     const [route, setRoute] = useState({});
     const navigate = useNavigate();
     useEffect(()=>{
-        axios.get(`http://localhost:8000/api/routes/${id}`)
+        axios.get(`http://localhost:8000/api/routes/${id}`,{withCredentials:true})
             .then(res=>{
                 console.log(res)
                 console.log(res.data)
@@ -25,7 +25,7 @@ const OneRoute = (props) => {
     }, [id]);
 
     const handleDelete = () => {
-    axios.delete(`http://localhost:8000/api/routes/${id}`)
+    axios.delete(`http://localhost:8000/api/routes/${id}`,{withCredentials:true})
         .then(res =>{
             console.log(res)
             navigate("/allRoutes")
@@ -33,9 +33,21 @@ const OneRoute = (props) => {
         .catch(err => { console.log(err)
         })
     }
+    const logoutUser = () => {
+        axios.post('http://localhost:8000/api/logoutUser', {},{withCredentials:true})
+            .then((res) => {
+                console.log(err);
+                navigate('/')
+            })
+            .catch((err) => {
+                console.log(err);
+                navigate('/')
+            })
+    }
     return (
     <div>
         <div>
+        <button className="btn btn-danger"  onClick={logoutUser}>Logout</button>
             <h1>ALLEZ ALLEZ</h1>
             <h1>A place to share routes with other cyclist</h1>
             <h3>Don't run away from your problems cycling is much faster!</h3>

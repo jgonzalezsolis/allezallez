@@ -1,13 +1,11 @@
 import React from 'react'
 
-
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-
 const Register = (props) => {
-    // const {mainUser, setMainUser} = props;
+
     const navigate = useNavigate()
     const [user, setUser] = useState({
         firstName:'',
@@ -16,7 +14,10 @@ const Register = (props) => {
         password:'',
         confirmPassword:''
     })
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({
+    })
+
+    const [regErrors, setRegErrors] = useState('')
 
     const changeHandler = (e) => {
         setUser({...user, [e.target.name]:e.target.value})
@@ -26,21 +27,34 @@ const Register = (props) => {
         e.preventDefault()
         axios.post('http://localhost:8000/api/registerUser', user, {withCredentials:true})
             .then((res) => {
-                // setMainUser(res.data)
                 console.log(res.data);
                 console.log(res);
-                navigate('/main')
+                navigate('/login')
             })
             .catch((err) => {
-                console.log(err);
-                console.log(err.response.data.error.errors)
-                setErrors(err.response.data.error.errors)
+                if (err.response.data.message === 'This email already exists, please log in'){
+                    setRegErrors('This email already exists, please log in')
+                    setErrors(err.response.data.error.errors)
+                }
+                else{
+                    setRegErrors('');
+                    setErrors(err.response.data.error.errors)
+                    console.log(err)
+
+                }
+
+
             })
-    }
-    return (
-        <div>
+        }
+        return (
+            <div>
             <h1>Welcome cyclist!</h1>
             <form className='w-50 mx-auto' onSubmit={submitHandler}>
+            {regErrors && (
+                    <div className="alert alert-danger">
+                        {regErrors}
+                    </div>
+                )}
             <div>
                 <label className="form-label">First Name:</label>
                 <input type="text" className="form-control" value={user.firstName} name='firstName' onChange={changeHandler}/>
@@ -70,6 +84,8 @@ const Register = (props) => {
                     :
                     null
                 }
+
+
             </div>
             <div>
                 <label className="form-label">Password:</label>
