@@ -56,18 +56,25 @@ const Update = (props) => {
             })
     }
     return (
-        <div className='col-6 mx-auto'>
-            <button className="btn btn-danger" onClick={logoutUser}>Logout</button>
-            <h1>ALLEZ ALLEZ</h1>
-            <h1>A place to share routes with other cyclist</h1>
-            <h3>“It never gets easier, you just get faster.” — Greg LeMond</h3>
-            <form onSubmit={updateRoute}>
+        <div className=' mx-auto'>
+            <button className="btn btn-danger mt-2 mb-2" onClick={logoutUser}>Logout</button>
+            <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4 ">
+
+            <h1 className='text-bg-info p-3 rounded-4'>ALLEZ ALLEZ</h1>
+            <h2 className='p-3 mb-2 bg-warning-subtle text-emphasis-warning rounded-4'>A place to share routes with other cyclist</h2>
+            <blockquote className="blockquote">
+                <p>“It never gets easier, you just get faster.”</p>
+            </blockquote>
+            <figcaption className="blockquote-footer">
+            Greg LeMond 
+            </figcaption>
+            <form onSubmit={updateRoute} className='w-50 mx-auto'>
                 <div className='form-group'>
-                    <label className='form-label'>State:</label><br/>
+                    <label className="form-label" >State:</label><br/>
                     {/* When the user types in this input, our onChange synthetic event 
                         runs this arrow function, setting that event's target's (input) 
                     value (what's typed into the input) to our updated state   */}
-                    <input type="text" name='state' value={route.state} onChange={handleChange} />
+                    <input className="form-control" type="text" name='state' value={route.state} onChange={handleChange} />
                     {
                         error.state ?
                         <p>{error.state.message}</p>
@@ -76,8 +83,8 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label>City:</label><br/>
-                    <input type="text" name='city' value={route.city} onChange={handleChange} />
+                    <label className="form-label">City:</label><br/>
+                    <input className="form-control" type="text" name='city' value={route.city} onChange={handleChange} />
                     {
                         error.city ?
                         <p>{error.city.message}</p>
@@ -86,8 +93,8 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Starting line:</label><br/>
-                    <input type="text" name='start' value={route.start} onChange={handleChange}/>
+                    <label className="form-label">Starting line:</label><br/>
+                    <input className="form-control" type="text" name='start' value={route.start} onChange={handleChange}/>
                     {
                         error.start ?
                         <p>{error.start.message}</p>
@@ -96,8 +103,8 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Finish line:</label><br/>
-                    <input type="text" name='end' value={route.end} onChange={handleChange}/>
+                    <label className="form-label">Finish line:</label><br/>
+                    <input className="form-control" type="text" name='end' value={route.end} onChange={handleChange}/>
                     {
                         error.end ?
                         <p>{error.end.message}</p>
@@ -106,8 +113,8 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Route Rating:</label><br/>
-                    <input type="number" name='rating' value={route.rating} onChange={handleChange}/>
+                    <label className="form-label">Route Rating:</label><br/>
+                    <input className="form-control" type="number" name='rating' value={route.rating} onChange={handleChange}/>
                     {
                         error.rating ?
                         <p>{error.rating.message}</p>
@@ -116,8 +123,8 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Distance in miles :</label><br/>
-                    <input type="number" name='distance' value={route.distance} onChange={handleChange}/>
+                    <label className="form-label">Distance in miles :</label><br/>
+                    <input className="form-control" type="number" name='distance' value={route.distance} onChange={handleChange}/>
                     {
                         error.distance ?
                         <p>{error.distance.message}</p>
@@ -126,8 +133,8 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label>Tips and suggestions:</label><br/>
-                    <input type="text" name='suggestions' value={route.suggestions} onChange={handleChange}/>
+                    <label className="form-label">Tips and suggestions:</label><br/>
+                    <input className="form-control" type="text" name='suggestions' value={route.suggestions} onChange={handleChange}/>
                     {
                         error.suggestions ?
                         <p>{error.suggestions.message}</p>
@@ -135,8 +142,9 @@ const Update = (props) => {
                         null
                     }
                 </div>
-                <input type="submit" value="Create"/>
+                <input className='btn btn-primary mt-2' type="submit" value="Create"/>
         </form>
+        </div>
         </div>
     )
 }

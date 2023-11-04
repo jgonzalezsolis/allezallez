@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import myImage from '/Users/josegonzalez/Desktop/Desktop - rene’s iMac/JAVASCRIPT/full_stack/allezallez/client/src/components/images/pexels-fernando-lucas-17655908.jpg';
 
 
 const Form = () => {
@@ -56,20 +55,20 @@ const Form = () => {
     
     
     return (
-        <div>
-            {/* <img  src={myImage} ></img> */}
-            <button className="btn btn-danger" onClick={logoutUser}>Logout</button>
+        <div >
+            <button className="btn btn-danger mb-2" onClick={logoutUser}>Logout</button>
+        <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4 ">
 
-        <h1>ALLEZ ALLEZ!</h1>
-        <h1>Share the routes as you share the road!</h1>
-        <h3>You are one ride away from happiness!</h3>
-        <form onSubmit={handleSubmit} className="form-group">
+        <h1 className='text-bg-info p-3 rounded-4'>ALLEZ ALLEZ!</h1>
+        <h2 className='p-3 mb-2 bg-warning-subtle text-emphasis-warning rounded-4' >Share the routes as you share the road!</h2>
+        <h3 className='text-bg-info p-3 rounded-4'>You are one ride away from happiness!</h3>
+        <form onSubmit={handleSubmit} className='w-50 mx-auto'>
             <div>
-                <label>State:</label><br/>
+                <label className="form-label">State:</label><br/>
                 {/* When the user types in this input, our onChange synthetic event 
                     runs this arrow function, setting that event's target's (input) 
                 value (what's typed into the input) to our updated state   */}
-                <input type="text" name='state'  onChange={handleChange} />
+                <input className="form-control" type="text" name='state'  onChange={handleChange} />
                 {
                     error.state ?
                     <p>{error.state.message}</p>
@@ -78,8 +77,8 @@ const Form = () => {
                 }
             </div>
             <div>
-                <label>City:</label><br/>
-                <input type="text" name='city' onChange={handleChange} />
+                <label className="form-label">City:</label><br/>
+                <input className="form-control" type="text" name='city' onChange={handleChange} />
                 {
                     error.city ?
                     <p>{error.city.message}</p>
@@ -88,8 +87,8 @@ const Form = () => {
                 }
             </div>
             <div>
-                <label>Starting line:</label><br/>
-                <input type="text" name='start'  onChange={handleChange}/>
+                <label className="form-label">Starting line:</label><br/>
+                <input className="form-control" type="text" name='start'  onChange={handleChange}/>
                 {
                     error.start ?
                     <p>{error.start.message}</p>
@@ -98,8 +97,8 @@ const Form = () => {
                 }
             </div>
             <div>
-                <label>Finish line:</label><br/>
-                <input type="text" name='end'  onChange={handleChange}/>
+                <label className="form-label">Finish line:</label><br/>
+                <input className="form-control" type="text" name='end'  onChange={handleChange}/>
                 {
                     error.end ?
                     <p>{error.end.message}</p>
@@ -108,8 +107,8 @@ const Form = () => {
                 }
             </div>
             <div>
-                <label>Route Rating:</label><br/>
-                <input type="number" name='rating'  onChange={handleChange}/>
+                <label className="form-label">Route Rating:</label><br/>
+                <input className="form-control" type="number" name='rating'  onChange={handleChange}/>
                 {
                     error.rating ?
                     <p>{error.rating.message}</p>
@@ -118,8 +117,8 @@ const Form = () => {
                 }
             </div>
             <div>
-                <label>Distance in miles :</label><br/>
-                <input type="number" name='distance'  onChange={handleChange}/>
+                <label className="form-label">Distance in miles:</label><br/>
+                <input className="form-control" type="number" name='distance'  onChange={handleChange}/>
                 {
                     error.distance ?
                     <p>{error.distance.message}</p>
@@ -128,8 +127,8 @@ const Form = () => {
                 }
             </div>
             <div>
-                <label>Tips and suggestions:</label><br/>
-                <input type="text" name='suggestions'  onChange={handleChange}/>
+                <label className="form-label">Tips and suggestions:</label><br/>
+                <input className="form-control" type="text" name='suggestions'  onChange={handleChange}/>
                 {
                     error.suggestions ?
                     <p>{error.suggestions.message}</p>
@@ -137,8 +136,9 @@ const Form = () => {
                     null
                 }
             </div>
-            <input type="submit" value="Create"/>
+            <input className='btn btn-primary mt-2' type="submit" value="Create"/>
         </form>
+        </div>
         </div>
     )
 }

@@ -47,8 +47,8 @@ const Register = (props) => {
             })
         }
         return (
-            <div>
-            <h1>Welcome cyclist!</h1>
+            <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4">
+            <h1 className='text-bg-info p-3 rounded-4'>Welcome cyclists!</h1>
             <form className='w-50 mx-auto' onSubmit={submitHandler}>
             {regErrors && (
                     <div className="alert alert-danger">
@@ -57,7 +57,7 @@ const Register = (props) => {
                 )}
             <div>
                 <label className="form-label">First Name:</label>
-                <input type="text" className="form-control" value={user.firstName} name='firstName' onChange={changeHandler}/>
+                <input type="text" className="form-control" value={user.firstName} name='firstName' onChange={changeHandler} />
                 {
                     errors.firstName ?
                     <p>{errors.firstName.message}</p>
@@ -77,7 +77,7 @@ const Register = (props) => {
             </div>
             <div>
                 <label className="form-label">Email:</label>
-                <input type="email" className="form-control" value={user.email} name='email' onChange={changeHandler}/>
+                <input type="email" className="form-control" value={user.email} name='email' onChange={changeHandler} />
                 {
                     errors.email ?
                     <p>{errors.email.message}</p>
@@ -107,11 +107,19 @@ const Register = (props) => {
                     null
                 }
             </div>
-            <button className='btn btn-primary d-block'>Register</button>
-            <Link to={'/login'}>Already Have An Account?</Link>
+            <br />
+            <div>
+            <button className='btn btn-primary'>Register</button>
+            </div>
+            <div >
+            <Link to={'/login'} className='btn btn-primary mt-2'>Already Have An Account?</Link>
+            </div>
         </form>
         </div>
+        
     )
 }
 
+
 export default Register
+

@@ -28,8 +28,9 @@ const Login = (props) => {
             })
     }
 return (
-    <div className='col-7 '>
-        <form onSubmit={submitHandler} >
+    <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4 ">
+        <h1 className='text-bg-info p-3 rounded-4'>Please Log In</h1>
+        <form  onSubmit={submitHandler} >
             <label className='form-label'>Email:</label>
             <input type="text" name="email" className='form-control' onChange={onChangeHandler} value={userLogin.email} />
             {
@@ -48,7 +49,7 @@ return (
                 }
             <button className='btn btn-primary mt-3'>Login</button>
             <br />
-            <Link to={'/'}>Register</Link>
+            <Link to={'/'} className='btn btn-primary mt-2'>Register</Link>
             
 
         </form>
