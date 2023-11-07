@@ -34,10 +34,10 @@ const Register = (props) => {
             .catch((err) => {
                 if (err.response.data.message === 'This email already exists, please log in'){
                     setRegErrors('This email already exists, please log in')
-                    setErrors(err.response.data.error.errors)
+                    // setErrors(err.response.data.error.errors)
                 }
                 else{
-                    setRegErrors('');
+                    // setRegErrors('');
                     setErrors(err.response.data.error.errors)
                     console.log(err)
 
@@ -47,40 +47,46 @@ const Register = (props) => {
             })
         }
         return (
-            <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4">
-            <h1 className='text-bg-info p-3 rounded-4'>Welcome cyclists!</h1>
-            <form className='w-50 mx-auto' onSubmit={submitHandler}>
+            <div className='background '>
+
+            <div >
+            <div >
+            <h1 className='p-3 mt-5'> Welcome to Allez Allez</h1>
+            <h2 className='p-3 mb-2 '>A place to share routes with other cyclist</h2> 
+            <h3 className='p-3 mb-2 '>Register Here</h3> 
+            </div>
+            <form className='w-25 mx-auto' onSubmit={submitHandler}>
             {regErrors && (
-                    <div className="alert alert-danger">
+                <div className="alert alert-danger p-1">
                         {regErrors}
                     </div>
                 )}
             <div>
-                <label className="form-label">First Name:</label>
+                <label className="form-label ">First Name:</label>
                 <input type="text" className="form-control" value={user.firstName} name='firstName' onChange={changeHandler} />
                 {
                     errors.firstName ?
-                    <p>{errors.firstName.message}</p>
+                    <p className="alert alert-danger p-1">{errors.firstName.message}</p>
                     :
                     null
                 }
             </div>
             <div>
-                <label className="form-label">Last Name:</label>
+                <label className="form-label mt-2  ">Last Name:</label>
                 <input type="text" className="form-control" value={user.lastName} name='lastName' onChange={changeHandler}/>
                 {
                     errors.lastName ?
-                    <p>{errors.lastName.message}</p>
+                    <p className="alert alert-danger p-1">{errors.lastName.message}</p>
                     :
                     null
                 }
             </div>
             <div>
-                <label className="form-label">Email:</label>
+                <label className="form-label mt-2   ">Email:</label>
                 <input type="email" className="form-control" value={user.email} name='email' onChange={changeHandler} />
                 {
                     errors.email ?
-                    <p>{errors.email.message}</p>
+                    <p className="alert alert-danger p-1">{errors.email.message}</p>
                     :
                     null
                 }
@@ -88,21 +94,21 @@ const Register = (props) => {
 
             </div>
             <div>
-                <label className="form-label">Password:</label>
+                <label className="form-label mt-2   ">Password:</label>
                 <input type="password" className="form-control" value={user.password} name='password' onChange={changeHandler}/>
                 {
                     errors.password ?
-                    <p>{errors.password.message}</p>
+                    <p className="alert alert-danger p-1">{errors.password.message}</p>
                     :
                     null
                 }
             </div>
             <div>
-                <label className="form-label">Confirm Password:</label>
+                <label className="form-label mt-2  ">Confirm Password:</label>
                 <input type="password" className="form-control" value={user.confirmPassword} name='confirmPassword' onChange={changeHandler}/>
                 {
                     errors.confirmPassword ?
-                    <p>{errors.confirmPassword.message}</p>
+                    <p className="alert alert-danger p-1">{errors.confirmPassword.message}</p>
                     :
                     null
                 }
@@ -115,6 +121,7 @@ const Register = (props) => {
             <Link to={'/login'} className='btn btn-primary mt-2'>Already Have An Account?</Link>
             </div>
         </form>
+        </div>
         </div>
         
     )

@@ -14,7 +14,7 @@ const ViewOne = (props) => {
 
     return (
     <div>
-        <Nav />
+        {/* <Nav /> */}
         <OneRoute/>
     </div>
     )

@@ -28,14 +28,16 @@ const Login = (props) => {
             })
     }
 return (
-    <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4 ">
-        <h1 className='text-bg-info p-3 rounded-4'>Please Log In</h1>
-        <form  onSubmit={submitHandler} >
+    <div className='backgroundlogin'>
+        <h1 className=' p-3 '> Welcome to Allez Allez</h1>
+        <h3 className='p-3 mb-2 '>A place to share routes with other cyclist</h3> 
+        <h3 className='p-3 mb-2 '>Please Log In</h3>
+        <form className='w-25 mx-auto'  onSubmit={submitHandler} >
             <label className='form-label'>Email:</label>
             <input type="text" name="email" className='form-control' onChange={onChangeHandler} value={userLogin.email} />
             {
                     loginErrors.message ?
-                    <p>{loginErrors.message}</p>
+                    <p className="alert alert-danger p-1">{loginErrors.message}</p>
                     :
                     null
                 }
@@ -43,7 +45,7 @@ return (
             <input type="password" name="password" className='form-control' onChange={onChangeHandler} value={userLogin.password} />
             {
                     loginErrors.message ?
-                    <p>{loginErrors.message}</p>
+                    <p className="alert alert-danger p-1">{loginErrors.message}</p>
                     :
                     null
                 }

@@ -46,13 +46,13 @@ const OneRoute = (props) => {
     }
     return (
     <div>
-        <button className="btn btn-danger mt-2 mb-2"  onClick={logoutUser}>Logout</button>
         <div>
-
-        <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4 ">
-            <h1 className='text-bg-info p-3 rounded-4'>ALLEZ ALLEZ</h1>
-            <h2 className='p-3 mb-2 bg-warning-subtle text-emphasis-warning rounded-4'>A place to share routes with other cyclist</h2>
-            <h3 >Don't run away from your problems cycling is much faster!</h3>
+        <div className="backgrounddisplayone">
+        <Link to={"/main"} className='btn btn-primary mt-2 me-1 mb-2'> Home </Link>
+        <button className="btn btn-danger mt-2 ms-1 mb-2"  onClick={logoutUser}>Logout</button>
+            <h1 className='text-white'>ALLEZ ALLEZ</h1>
+            <h2 className='p-2 mb-1 text-white'>A place to share routes with other cyclist</h2>
+            <h3 className='p-2 mb-1 text-white'>Don't run away from your problems cycling is much faster!</h3>
             <p>State: {route.state}</p>
             <p>City: {route.city}</p>
             <p>Starting Line: {route.start}</p>

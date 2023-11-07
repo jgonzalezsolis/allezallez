@@ -1,6 +1,77 @@
 #root {
-  max-width: 1280px;
+
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
   text-align: center;
+}
+.background {
+
+  background-image: url("./components/images/pexels-대정-김-2734512.jpg");
+  background-size:cover;
+  height: 1355px;
+  margin-right:auto;
+  margin-left: auto;
+  overflow: hidden;
+  color:rgb(255, 255, 255);
+}
+.backgroundlogin {
+
+  background-image: url("./components/images/pexels-mads-thomsen-2739013.jpg");
+  background-size: cover;
+  height: 1355px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.backgroundform {
+  background-image: url("./components/images/pexels-bogdan-r-anton-1088672.jpg");
+  background-size: cover;
+  height: 1355px;
+  margin-right: auto;
+  margin-left: auto;
+  color: rgb(12, 9, 1);
+}
+.backgrounddisplay{
+  background-image: url("./components/images/pexels-gutsbyjan-n-15272229.jpg");
+  background-size: cover;
+  height: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+}
+.backgroundcard{
+  background-image: url("./components/images/pexels-bogdan-r-anton-1088672.jpg");
+  background-size: cover;
+  height: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  opacity: 0.6;
+  
+}
+.backgrounddisplayone{
+  background-image: url("./components/images/pexels-pixabay-315938.jpg");
+  background-size: cover;
+  height: 1355px;;
+  margin-right: auto;
+  margin-left: auto;
+  color: aliceblue;
+}
+.backgroundedit{
+  background-image: url("./components/images/pexels-kelly-2876511.jpg");
+  background-size: cover;
+  height: 1355px;;
+  margin-right: auto;
+  margin-left: auto;
+  color: rgb(255, 255, 255);
+}
+
+.transbox {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+
+}
+.displaylink{
+  color: blue;
+
+}
+.app{
+  width:1280px;
 }

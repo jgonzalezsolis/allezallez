@@ -15,7 +15,7 @@ const Main = (props) => {
 
     return (
     <div>
-        <HomeNav />
+        {/* <HomeNav /> */}
         {/* <Form allRoutes={allRoutes} setAllRoutes={setAllRoutes}/> */}
         <Form />
         {/* <DisplayAll allProducts={allProducts} setAllProducts={setAllProducts} /> */}

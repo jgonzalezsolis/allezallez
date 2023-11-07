@@ -1,0 +1,24 @@
+.background {
+
+    background-image: url("./components/images/pexels-sebastian-palomino-1955134.jpg");
+    background-size: cover;
+    height: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+.backgroundlogin {
+  
+    background-image: url("./components/images/pexels-mads-thomsen-2739013.jpg");
+    background-size: cover;
+    height: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+.backgrounddisplay {
+  
+    background-image: url("./components/images/pexels-eberhard-grossgasteiger-1366919.jpg");
+    background-size: cover;
+    height: 1220px;
+    margin-right: auto;
+    margin-left: auto;
+  }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 const Update = (props) => {
     const [route, setRoute] = useState ({
         state: '',
@@ -56,21 +56,22 @@ const Update = (props) => {
             })
     }
     return (
-        <div className=' mx-auto'>
-            <button className="btn btn-danger mt-2 mb-2" onClick={logoutUser}>Logout</button>
-            <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary rounded-4 ">
+        <div className='backgroundedit'>
+            <Link to={"/main"} className='btn btn-primary mt-3 mb-2 me-1'> Home </Link>
+            <button className="btn btn-danger mt-3 mb-2 ms-1" onClick={logoutUser}>Logout</button>
+            <div className="p-3   ">
 
-            <h1 className='text-bg-info p-3 rounded-4'>ALLEZ ALLEZ</h1>
-            <h2 className='p-3 mb-2 bg-warning-subtle text-emphasis-warning rounded-4'>A place to share routes with other cyclist</h2>
-            <blockquote className="blockquote">
+            <h1 className=''>ALLEZ ALLEZ</h1>
+            <h2 className='p-3 mb-2 '>A place to share routes with other cyclist</h2>
+            <blockquote className="blockquote mb-1">
                 <p>“It never gets easier, you just get faster.”</p>
             </blockquote>
-            <figcaption className="blockquote-footer">
-            Greg LeMond 
+            <figcaption className=" color-white mb-3">
+            -Greg LeMond 
             </figcaption>
-            <form onSubmit={updateRoute} className='w-50 mx-auto'>
+            <form onSubmit={updateRoute} className='w-25 mx-auto'>
                 <div className='form-group'>
-                    <label className="form-label" >State:</label><br/>
+                    <label className="form-label mt-3" >State:</label><br/>
                     {/* When the user types in this input, our onChange synthetic event 
                         runs this arrow function, setting that event's target's (input) 
                     value (what's typed into the input) to our updated state   */}
@@ -142,7 +143,7 @@ const Update = (props) => {
                         null
                     }
                 </div>
-                <input className='btn btn-primary mt-2' type="submit" value="Create"/>
+                <input className='btn btn-primary mt-2' type="submit" value="Update"/>
         </form>
         </div>
         </div>

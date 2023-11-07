@@ -32,7 +32,6 @@ function App() {
           <Route path="/routes/:id" element={<ViewOne/>} />
           <Route path="/routes/edit/:id" element={<Edit/>} />
           <Route path="*" element={<NotFound/>}/>
-          
         </Routes>
     </div>
     </BrowserRouter>
