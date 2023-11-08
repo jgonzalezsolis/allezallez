@@ -21,7 +21,6 @@ const Edit = (props) => {
 
     return (
     <div>
-        {/* <Nav /> */}
         <UpdateForm route={route}  />
     </div>
     )

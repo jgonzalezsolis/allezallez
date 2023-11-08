@@ -18,12 +18,9 @@ const Login = (props) => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/loginUser', userLogin, {withCredentials:true})
             .then((res) => {
-                console.log(res.data.firstName);
                 navigate('/main')
             })
             .catch((err) => {
-                console.log(err);
-                console.log(err.response.data);
                 setLoginErrors(err.response.data)
             })
     }

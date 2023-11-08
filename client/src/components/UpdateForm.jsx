@@ -11,19 +11,16 @@ const Update = (props) => {
         distance: 0,
         suggestions: ''
     })
-    const { id } = useParams(); //this process is identical to the one we used with our Details.js component
+    const { id } = useParams();
     const navigate = useNavigate();
     const [error, setError] = useState({})
     const handleChange= (e)=>{
         setRoute({...route, [e.target.name]: e.target.value})
     }
-    // retrieve the current values for this person so we can fill
-    // in the form with what is in the db currently
+
     useEffect(()=>{
         axios.get(`http://localhost:8000/api/routes/${id}`, {withCredentials:true})
             .then(res=>{
-                console.log(res)
-                console.log(res.data)
                 setRoute(res.data)
             })
             .catch(err=>{console.log(err)})
@@ -33,31 +30,25 @@ const Update = (props) => {
         e.preventDefault();
         axios.patch(`http://localhost:8000/api/routes/${id}`, route,{withCredentials:true})
             .then(res => {
-                console.log(res);
-                navigate(`/routes/${id}`)  //this will take us to the details page for this product
-                //navigate('/product/' + id)  //and this is a way of using id without `` and no javascript {}, will take us to the details page for this product
-                // navigate("/"); // this will take us back to the Main.js
+                navigate(`/routes/${id}`) 
             })
             .catch(err => {
-            console.log(err.response.data.error.errors)
             setError(err.response.data.error.errors)
-            // navigate("/")
         })
     }
     const logoutUser = () => {
         axios.post('http://localhost:8000/api/logoutUser', {},{withCredentials:true})
             .then((res) => {
-                console.log(err);
                 navigate('/')
             })
             .catch((err) => {
-                console.log(err);
                 navigate('/')
             })
     }
     return (
         <div className='backgroundedit'>
-            <Link to={"/main"} className='btn btn-primary mt-3 mb-2 me-1'> Home </Link>
+            <Link to={"/main"} className='btn btn-primary mt-3 mb-2 me-1'> Add New Route </Link>
+            <Link to={'/allRoutes'} className='btn btn-primary mt-3 mb-2 me-1 ms-1'> Back to Routes </Link>
             <button className="btn btn-danger mt-3 mb-2 ms-1" onClick={logoutUser}>Logout</button>
             <div className="p-3   ">
 
@@ -72,9 +63,6 @@ const Update = (props) => {
             <form onSubmit={updateRoute} className='w-25 mx-auto'>
                 <div className='form-group'>
                     <label className="form-label mt-3" >State:</label><br/>
-                    {/* When the user types in this input, our onChange synthetic event 
-                        runs this arrow function, setting that event's target's (input) 
-                    value (what's typed into the input) to our updated state   */}
                     <input className="form-control" type="text" name='state' value={route.state} onChange={handleChange} />
                     {
                         error.state ?
@@ -114,7 +102,7 @@ const Update = (props) => {
                     }
                 </div>
                 <div>
-                    <label className="form-label">Route Rating:</label><br/>
+                    <label className="form-label">Route Rating (1-5):</label><br/>
                     <input className="form-control" type="number" name='rating' value={route.rating} onChange={handleChange}/>
                     {
                         error.rating ?
@@ -128,7 +116,7 @@ const Update = (props) => {
                     <input className="form-control" type="number" name='distance' value={route.distance} onChange={handleChange}/>
                     {
                         error.distance ?
-                        <p>{error.distance.message}</p>
+                        <p className="alert alert-danger p-1">{error.distance.message}</p>
                         :
                         null
                     }

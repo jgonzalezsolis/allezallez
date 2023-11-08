@@ -9,16 +9,11 @@ const Main = (props) => {
 
     const [allRoutes, setAllRoutes] = useState([]);
 
-    // const removeFromDom = productId => {
-    //     setAllProducts(allProducts.filter(product => product._id != productId)); //We could also write this in our PersonList component
-    // }
+
 
     return (
     <div>
-        {/* <HomeNav /> */}
-        {/* <Form allRoutes={allRoutes} setAllRoutes={setAllRoutes}/> */}
         <Form />
-        {/* <DisplayAll allProducts={allProducts} setAllProducts={setAllProducts} /> */}
     </div>
     )
 }

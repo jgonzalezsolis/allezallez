@@ -27,29 +27,19 @@ const Register = (props) => {
         e.preventDefault()
         axios.post('http://localhost:8000/api/registerUser', user, {withCredentials:true})
             .then((res) => {
-                console.log(res.data);
-                console.log(res);
                 navigate('/login')
             })
             .catch((err) => {
                 if (err.response.data.message === 'This email already exists, please log in'){
                     setRegErrors('This email already exists, please log in')
-                    // setErrors(err.response.data.error.errors)
                 }
                 else{
-                    // setRegErrors('');
                     setErrors(err.response.data.error.errors)
-                    console.log(err)
-
                 }
-
-
             })
         }
         return (
             <div className='background '>
-
-            <div >
             <div >
             <h1 className='p-3 mt-5'> Welcome to Allez Allez</h1>
             <h2 className='p-3 mb-2 '>A place to share routes with other cyclist</h2> 
@@ -62,7 +52,7 @@ const Register = (props) => {
                     </div>
                 )}
             <div>
-                <label className="form-label ">First Name:</label>
+                <label className="form-label h5 ">First Name:</label>
                 <input type="text" className="form-control" value={user.firstName} name='firstName' onChange={changeHandler} />
                 {
                     errors.firstName ?
@@ -72,7 +62,7 @@ const Register = (props) => {
                 }
             </div>
             <div>
-                <label className="form-label mt-2  ">Last Name:</label>
+                <label className="form-label mt-2 h5 ">Last Name:</label>
                 <input type="text" className="form-control" value={user.lastName} name='lastName' onChange={changeHandler}/>
                 {
                     errors.lastName ?
@@ -82,7 +72,7 @@ const Register = (props) => {
                 }
             </div>
             <div>
-                <label className="form-label mt-2   ">Email:</label>
+                <label className="form-label mt-2  h5 ">Email:</label>
                 <input type="email" className="form-control" value={user.email} name='email' onChange={changeHandler} />
                 {
                     errors.email ?
@@ -94,7 +84,7 @@ const Register = (props) => {
 
             </div>
             <div>
-                <label className="form-label mt-2   ">Password:</label>
+                <label className="form-label mt-2  h5 ">Password:</label>
                 <input type="password" className="form-control" value={user.password} name='password' onChange={changeHandler}/>
                 {
                     errors.password ?
@@ -104,7 +94,7 @@ const Register = (props) => {
                 }
             </div>
             <div>
-                <label className="form-label mt-2  ">Confirm Password:</label>
+                <label className="form-label mt-2 h5 ">Confirm Password:</label>
                 <input type="password" className="form-control" value={user.confirmPassword} name='confirmPassword' onChange={changeHandler}/>
                 {
                     errors.confirmPassword ?
@@ -121,7 +111,6 @@ const Register = (props) => {
             <Link to={'/login'} className='btn btn-primary mt-2'>Already Have An Account?</Link>
             </div>
         </form>
-        </div>
         </div>
         
     )

@@ -9,12 +9,12 @@ import OneRoute from '../components/OneRoute';
 
 const ViewOne = (props) => {
 
-    // const [allRoutes, setAllRoutes] = useState([]);
+
 
 
     return (
     <div>
-        {/* <Nav /> */}
+
         <OneRoute/>
     </div>
     )

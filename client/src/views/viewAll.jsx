@@ -12,7 +12,6 @@ const View = (props) => {
 
     return (
     <div>
-        {/* <Nav /> */}
         <DisplayAll />
     </div>
     )

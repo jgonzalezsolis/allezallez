@@ -1,12 +1,7 @@
-import { useState } from 'react';
+
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom' 
-import DisplayAll from './components/DisplayAll';
-import Update from './components/UpdateForm';
-import Nav from './components/Nav';
-import HomeNav from './components/HomeNav';
 import './App.css'
-import Form  from './components/form';
 import Main from './views/main';
 import Add from './views/add';
 import Edit from './views/edit';
