@@ -35,7 +35,6 @@ UserSchema.pre('validate', function(next) {
     next();
     });
 
-    // this should go after 
 UserSchema.pre('save', function(next) {
     bcrypt.hash(this.password, 10)
         .then(hash => {
